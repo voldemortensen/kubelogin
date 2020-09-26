@@ -18,6 +18,7 @@ cluster:
 	# wait for kube-apiserver oidc initialization
 	# (oidc authenticator will retry oidc discovery every 10s)
 	sleep 10
+	kubectl -n kube-system logs --tail=30 kube-apiserver-$(CLUSTER_NAME)-control-plane
 
 .PHONY: terminate
 terminate:
