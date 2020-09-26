@@ -25,4 +25,4 @@ jobs:
       - run: sudo apt update
       - run: sudo apt install -y libnss3-tools
       - run: mkdir -p ~/.pki/nssdb
-      - run: make -C system_test -j3
+      - run: make -C system_test -j2

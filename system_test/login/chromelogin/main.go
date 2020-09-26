@@ -59,13 +59,13 @@ func logInToDex(ctx context.Context, url string) error {
 	}
 
 	err := chromedp.Run(ctx,
-		// https://dex-server.localhost:10443/dex/auth/local
+		// https://dex-server.localhost:30443/dex/auth/local
 		chromedp.WaitVisible(`#login`),
 		logPageMetadata(),
 		chromedp.SendKeys(`#login`, `admin@example.com`),
 		chromedp.SendKeys(`#password`, `password`),
 		chromedp.Submit(`#submit-login`),
-		// https://dex-server.localhost:10443/dex/approval
+		// https://dex-server.localhost:30443/dex/approval
 		chromedp.WaitVisible(`.dex-btn.theme-btn--success`),
 		logPageMetadata(),
 		chromedp.Submit(`.dex-btn.theme-btn--success`),

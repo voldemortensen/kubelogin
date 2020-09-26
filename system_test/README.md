@@ -28,10 +28,8 @@ Let's take a look at the diagram.
 It prepares the following resources:
 
 1. Generate a pair of CA certificate and TLS server certificate for Dex.
-1. Run Dex on a container.
 1. Create a Kubernetes cluster using Kind.
-1. Mutate `/etc/hosts` of the machine so that the browser access Dex.
-1. Mutate `/etc/hosts` of the kind container so that kube-apiserver access Dex.
+1. Run Dex on the cluster.
 
 It performs the test by the following steps:
 
@@ -89,8 +87,8 @@ Consider the following issues:
 
 Consequently,
 
-- kube-apiserver accesses Dex by resolving `/etc/hosts` and via the Docker network.
-- kubelogin and Chrome accesses Dex by resolving `/etc/hosts` and via the Docker network.
+- kube-apiserver accesses Dex via the NodePort.
+- kubelogin and Chrome accesses Dex via the Docker network.
 
 ### TLS server certificate
 
@@ -111,5 +109,6 @@ As a result,
 
 ### Test environment
 
+- Set up Dex. See [`dex.yaml`](cluster/dex.yaml).
 - Set the issuer URL to kube-apiserver. See [`cluster.yaml`](cluster/cluster.yaml).
 - Set `BROWSER` environment variable to run [`chromelogin`](login/chromelogin) by `xdg-open`.

@@ -5,11 +5,7 @@ login: setup
 	$(MAKE) -C login
 
 .PHONY: setup
-setup: dex cluster setup-chrome
-
-.PHONY: dex
-dex: cert
-	$(MAKE) -C dex
+setup: cluster setup-chrome
 
 .PHONY: cluster
 cluster: cert
@@ -27,11 +23,9 @@ cert:
 .PHONY: terminate
 terminate:
 	$(MAKE) -C cluster terminate
-	$(MAKE) -C dex terminate
 
 .PHONY: clean
 clean:
 	$(MAKE) -C cert clean
 	$(MAKE) -C cluster clean
-	$(MAKE) -C dex clean
 	$(MAKE) -C login clean
