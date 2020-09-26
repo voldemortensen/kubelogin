@@ -54,12 +54,6 @@ You need to set up the following components:
 - Kind
 - Chrome or Chromium
 
-Add the following line to `/etc/hosts` so that the browser can access the Dex.
-
-```
-127.0.0.1 dex-server
-```
-
 Generate CA certificate and add `cert/ca.crt` into your trust store.
 For macOS, you can add it by Keychain.
 

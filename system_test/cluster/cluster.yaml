@@ -9,7 +9,7 @@ kubeadmConfigPatches:
       name: config
     apiServer:
       extraArgs:
-        oidc-issuer-url: https://dex-server:10443/dex
+        oidc-issuer-url: https://dex-server.localhost:10443/dex
         oidc-client-id: YOUR_CLIENT_ID
         oidc-username-claim: email
         oidc-ca-file: /usr/local/share/ca-certificates/dex-ca.crt

@@ -15,7 +15,7 @@ export BROWSER
 test: build
 	# see the setup instruction
 	kubectl oidc-login setup \
-		--oidc-issuer-url=https://dex-server:10443/dex \
+		--oidc-issuer-url=https://dex-server.localhost:10443/dex \
 		--oidc-client-id=YOUR_CLIENT_ID \
 		--oidc-client-secret=YOUR_CLIENT_SECRET \
 		--oidc-extra-scope=email \
@@ -26,7 +26,7 @@ test: build
 		--exec-command=kubectl \
 		--exec-arg=oidc-login \
 		--exec-arg=get-token \
-		--exec-arg=--oidc-issuer-url=https://dex-server:10443/dex \
+		--exec-arg=--oidc-issuer-url=https://dex-server.localhost:10443/dex \
 		--exec-arg=--oidc-client-id=YOUR_CLIENT_ID \
 		--exec-arg=--oidc-client-secret=YOUR_CLIENT_SECRET \
 		--exec-arg=--oidc-extra-scope=email \

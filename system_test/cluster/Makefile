@@ -9,7 +9,7 @@ cluster:
 	cp $(CERT_DIR)/ca.crt /tmp/kubelogin-system-test-dex-ca.crt
 	kind create cluster --name $(CLUSTER_NAME) --config cluster.yaml
 	# add the Dex container IP to /etc/hosts
-	docker inspect -f '{{.NetworkSettings.Networks.kind.IPAddress}}' dex-server | sed -e 's,$$, dex-server,' | \
+	docker inspect -f '{{.NetworkSettings.Networks.kind.IPAddress}}' dex-server | sed -e 's,$$, dex-server.localhost,' | \
 		docker exec -i $(CLUSTER_NAME)-control-plane tee -a /etc/hosts
 	# wait for kube-apiserver oidc initialization
 	# (oidc authenticator will retry oidc discovery every 10s)

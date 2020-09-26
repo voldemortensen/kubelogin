@@ -1,4 +1,4 @@
-issuer: https://dex-server:10443/dex
+issuer: https://dex-server.localhost:10443/dex
 web:
   https: 0.0.0.0:10443
   tlsCert: /server.crt
