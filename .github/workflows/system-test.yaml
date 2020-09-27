@@ -25,5 +25,4 @@ jobs:
       - run: sudo apt update
       - run: sudo apt install -y libnss3-tools
       - run: mkdir -p ~/.pki/nssdb
-      - run: echo '127.0.0.1 dex-server.localhost' | sudo tee -a /etc/hosts
       - run: make -C system_test -j2

@@ -11,6 +11,8 @@ cluster:
 	# add the cluster role
 	kubectl create clusterrole cluster-readonly --verb=get,watch,list --resource='*.*'
 	kubectl create clusterrolebinding cluster-readonly --clusterrole=cluster-readonly --user=admin@example.com
+	# add hosts
+	echo '127.0.0.1 dex-server.localhost' | docker exec -i $(CLUSTER_NAME)-control-plane tee -a /etc/hosts
 	# deploy Dex
 	kubectl apply -f dex.yaml
 	kubectl -n dex create secret tls dex.tls --cert=$(CERT_DIR)/server.crt --key=$(CERT_DIR)/server.key
